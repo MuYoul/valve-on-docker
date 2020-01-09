@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -it -v "/home/zlemy/.kube":/mnt/kube -v %cd%/:/mnt/home -v /var/run/docker.sock:/var/run/docker.sock -w /mnt/home lemy0715/valve_in_docker /bin/bash -c "cp /mnt/kube/config /root/.kube/config; /root/.local/bin/valve %*"
