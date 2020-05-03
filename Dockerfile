@@ -2,11 +2,15 @@
 # FROM       ubuntu:18.04
 FROM    ubuntu_18.04_apt_upgraded
 LABEL   maintainer="lemy0715@gmail.com"
-RUN     apt-get -y update
+
 
 # 2. library update
-RUN apt-get -y install curl
-RUN gem install bundler
+RUN apt-get -y update
 
-# 3. 소스 복사
-COPY . /usr/src/app
+# 3. Install library
+RUN apt-get -y install curl sudo
+RUN curl -sL https://sentry.io/get-cli/ | bash
+RUN curl -sL repo.opsnow.io/valve-ctl/install | bash
+
+# TODO Sentry additional data setting
+
